@@ -43,4 +43,13 @@ public class Foro  extends  AuditModel{
                       inverseJoinColumns = {@JoinColumn(name = "tag_id")})
                       @JsonIgnore
     List<Tag> tags;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name = "foro_users",
+            joinColumns = {@JoinColumn(name="foro_id")},
+            inverseJoinColumns = {@JoinColumn(name = "tag_id")})
+    @JsonIgnore
+    List<User> User;
+
 }

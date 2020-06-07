@@ -29,8 +29,13 @@ public class Profile extends AuditModel {
     private  String sex;
 
     @NotNull
-    @Lob
+    @NotBlank
+    @Size(max=30)
     private String description;
+
+    @OneToOne(mappedBy = "profile", cascade = CascadeType.ALL)
+    private User project;
+
 
 
 }
