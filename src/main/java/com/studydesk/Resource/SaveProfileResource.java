@@ -1,23 +1,14 @@
-package com.studydesk.Model;
+package com.studydesk.Resource;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "profiles")
 @Getter
 @Setter
-public class Profile extends AuditModel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class SaveProfileResource {
     @NotNull
     @NotBlank
     @Size(max=30)
@@ -37,11 +28,4 @@ public class Profile extends AuditModel {
     @NotBlank
     @Size(max=30)
     private String LastName;
-
-
-    @OneToOne(mappedBy = "profile", cascade = CascadeType.ALL)
-    private User project;
-
-
-
 }
