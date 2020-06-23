@@ -1,6 +1,7 @@
 package com.studydesk.Resource;
 
 import com.studydesk.Model.AuditModel;
+import com.studydesk.Model.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,4 +13,8 @@ public class ProfileResource extends AuditModel {
     private  String sex;
     private String FirstName;
     private String LastName;
+
+    @Override
+    public void setUser(User user) {
+    }
 }
