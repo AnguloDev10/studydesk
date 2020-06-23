@@ -27,4 +27,6 @@ public abstract class AuditModel implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     private Date updatedAt;
+
+    public abstract void setUser(User user);
 }
