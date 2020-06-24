@@ -31,5 +31,9 @@ public class Course extends  AuditModel {
     @JsonIgnore
     private List<Career> careers;
 
-
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            mappedBy = "teacher")///ve a posts tags y ahi esta la info, solo configuracion en la parte de muchos
+    @JsonIgnore
+    private List<Teacher> teachers;
 }
