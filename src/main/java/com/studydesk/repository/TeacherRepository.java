@@ -1,9 +1,9 @@
 package com.studydesk.repository;
 
-import com.studydesk.Model.Tag;
+import com.studydesk.Model.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TagRepository extends JpaRepository<Tag,Long> {
+public interface TeacherRepository extends JpaRepository<Teacher, Long> {
 }
