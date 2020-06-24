@@ -81,7 +81,7 @@ public class CareerController {
     public CareerResource unassignPostTag(@PathVariable(name = "postId") Long postId,
                                         @PathVariable(name = "tagId") Long tagId) {
 
-        return convertToResource(careerService.assignCareerCourse(postId, tagId));
+        return convertToResource(careerService.unassignCareerCourse(postId, tagId));
     }
 
     private Career convertToEntity(SaveCareerResource resource) {
