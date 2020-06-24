@@ -52,8 +52,5 @@ public class Foro  extends  AuditModel{
     @JsonIgnore
     List<User> User;
 
-    @Override
-    public void setUser(com.studydesk.Model.User user) {
 
-    }
 }

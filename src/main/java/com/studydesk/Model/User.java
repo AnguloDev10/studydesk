@@ -29,9 +29,9 @@ public class User extends AuditModel{
     @Size(max = 100)
     private String password;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private  Profile profile;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    private Profile profile;
 
 
     @ManyToMany(fetch = FetchType.LAZY,
@@ -41,8 +41,5 @@ public class User extends AuditModel{
     private List<Foro> foros;
 
 
-    @Override
-    public void setUser(User user) {
 
-    }
 }

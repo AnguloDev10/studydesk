@@ -12,8 +12,5 @@ public class UserResource extends AuditModel {
     private String name;
     private String password;
 
-    @Override
-    public void setUser(User user) {
 
-    }
 }

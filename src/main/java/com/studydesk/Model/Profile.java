@@ -39,12 +39,9 @@ public class Profile extends AuditModel {
     private String LastName;
 
 
-    @OneToOne(mappedBy = "profile", cascade = CascadeType.ALL)
-    private User project;
+    @OneToOne(mappedBy = "user")
+    private User user;
 
 
-    @Override
-    public void setUser(User user) {
 
-    }
 }

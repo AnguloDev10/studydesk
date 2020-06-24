@@ -29,8 +29,4 @@ public class Comment extends AuditModel {
    @JsonIgnore
    private Foro foro;
 
-   @Override
-   public void setUser(User user) {
-
-   }
 }

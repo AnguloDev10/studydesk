@@ -31,8 +31,5 @@ public class Course extends  AuditModel {
     @JsonIgnore
     private List<Career> careers;
 
-    @Override
-    public void setUser(User user) {
 
-    }
 }

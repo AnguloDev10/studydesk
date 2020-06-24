@@ -28,5 +28,5 @@ public abstract class AuditModel implements Serializable {
     @LastModifiedDate
     private Date updatedAt;
 
-    public abstract void setUser(User user);
+
 }

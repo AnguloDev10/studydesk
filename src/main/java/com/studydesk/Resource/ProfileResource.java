@@ -14,7 +14,5 @@ public class ProfileResource extends AuditModel {
     private String FirstName;
     private String LastName;
 
-    @Override
-    public void setUser(User user) {
-    }
+
 }

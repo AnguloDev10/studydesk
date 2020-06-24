@@ -31,8 +31,5 @@ public class Tag extends AuditModel {
     @JsonIgnore
     private List<Foro> posts;
 
-    @Override
-    public void setUser(User user) {
 
-    }
 }
