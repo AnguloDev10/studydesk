@@ -23,8 +23,6 @@ public class CategoryController {
      @Autowired
      private CategoryService categoryService;
 
-
-
     @GetMapping("/tags")
     public Page<CategoryResource> getAllTags(Pageable pageable) {
         List<CategoryResource> tags = categoryService.getAllCategories(pageable).getContent().stream().map(this::convertToResource).collect(Collectors.toList());

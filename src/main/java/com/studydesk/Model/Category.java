@@ -22,4 +22,8 @@ public class Category  extends AuditModel{
     @NaturalId///Llave alterna en bd
     private String name;
 
+    @Override
+    public void setUser(User user) {
+
+    }
 }
