@@ -34,4 +34,8 @@ public class Career extends AuditModel {
     List<Course> courses;
 
 
+    @Override
+    public void setUser(User user) {
+
+    }
 }

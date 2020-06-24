@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "users")
 @Getter
 @Setter
-public class User {
+public class User extends AuditModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,4 +41,8 @@ public class User {
     private List<Foro> foros;
 
 
+    @Override
+    public void setUser(User user) {
+
+    }
 }

@@ -43,5 +43,8 @@ public class Profile extends AuditModel {
     private User project;
 
 
+    @Override
+    public void setUser(User user) {
 
+    }
 }
