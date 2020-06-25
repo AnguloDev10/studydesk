@@ -29,9 +29,9 @@ public class CareerController {
     @Autowired
     private CareerService careerService;
 
-    @Operation(summary = "Get Posts", description = "Get All Posts by Pages", tags = { "posts" })
-    @GetMapping("/posts")
-    public Page<CareerResource> getAllPosts(
+    @Operation(summary = "Get Careers", description = "Get All Careers by Pages", tags = { "careers" })
+    @GetMapping("/careers")
+    public Page<CareerResource> getAllCareers(
             @Parameter(description="Pageable Parameter")
                     Pageable pageable) {
         Page<Career> postsPage = careerService.getAllCareers(pageable);
@@ -40,46 +40,46 @@ public class CareerController {
         return new PageImpl<>(resources, pageable, resources.size());
     }
 
-    @Operation(summary = "Get Post by Id", description = "Get a Posts by specifying Id", tags = { "posts" })
-    @GetMapping("/posts/{id}")
-    public CareerResource getPostById(
+    @Operation(summary = "Get Career by Id", description = "Get a Careers by specifying Id", tags = { "careers" })
+    @GetMapping("/careers/{id}")
+    public CareerResource getCareerById(
             @Parameter(description="Post Id")
             @PathVariable(name = "id") Long postId) {
         return convertToResource(careerService.getCareerById(postId));
     }
 
-    @PostMapping("/posts")
-    public CareerResource createPost(@Valid @RequestBody SaveCareerResource resource)  {
+    @PostMapping("/careers")
+    public CareerResource createCareer(@Valid @RequestBody SaveCareerResource resource)  {
         Career career = convertToEntity(resource);
         return convertToResource(careerService.createCareer(career));
     }
 
-    @PutMapping("/posts/{id}")
-    public CareerResource updatePost(@PathVariable(name = "id") Long postId, @Valid @RequestBody SaveCareerResource resource) {
+    @PutMapping("/careers/{id}")
+    public CareerResource updateCareer(@PathVariable(name = "id") Long postId, @Valid @RequestBody SaveCareerResource resource) {
         Career career = convertToEntity(resource);
         return convertToResource(careerService.updateCareer(postId, career));
     }
 
-    @DeleteMapping("/posts/{id}")
-    public ResponseEntity<?> deletePost(@PathVariable(name = "id") Long postId) {
+    @DeleteMapping("/careers/{id}")
+    public ResponseEntity<?> deleteCareer(@PathVariable(name = "id") Long postId) {
         return careerService.deleteCareer(postId);
     }
 
-    @GetMapping("/tags/{tagId}/posts")
-    public Page<CareerResource> getAllPostsByTagId(@PathVariable(name = "tagId") Long tagId, Pageable pageable) {
+    @GetMapping("/tags/{tagId}/careers")
+    public Page<CareerResource> getAllCareersByCourseId(@PathVariable(name = "tagId") Long tagId, Pageable pageable) {
         Page<Career> postsPage = careerService.getAllCareersByCourseId(tagId, pageable);
         List<CareerResource> resources = postsPage.getContent().stream().map(this::convertToResource).collect(Collectors.toList());
         return new PageImpl<>(resources, pageable, resources.size());
     }
 
-    @PostMapping("/posts/{postId}/tags/{tagId}")
-    public CareerResource assignPostTag(@PathVariable(name = "postId") Long postId,
-                                      @PathVariable(name = "tagId") Long tagId) {
+    @PostMapping("/careers/{careerId}/courses/{courseId}")
+    public CareerResource assignCareersCourse(@PathVariable(name = "careerId") Long postId,
+                                      @PathVariable(name = "courseId") Long tagId) {
         return convertToResource(careerService.assignCareerCourse(postId, tagId)); }
 
-    @DeleteMapping("/posts/{postId}/tags/{tagId}")
-    public CareerResource unassignPostTag(@PathVariable(name = "postId") Long postId,
-                                        @PathVariable(name = "tagId") Long tagId) {
+    @DeleteMapping("/careers/{careerId}/courses/{courseId}")
+    public CareerResource unassignCareersCourse(@PathVariable(name = "careerId") Long postId,
+                                        @PathVariable(name = "courseId") Long tagId) {
 
         return convertToResource(careerService.unassignCareerCourse(postId, tagId));
     }
