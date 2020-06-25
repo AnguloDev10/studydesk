@@ -66,8 +66,10 @@ public class DocumentServiceImpl implements DocumentService{
         ));
     }
 
+
     @Override
     public List<Document> getAllDocuments() {
         return documentRepository.findAll();
     }
+
 }

@@ -13,6 +13,5 @@ public interface DocumentService {
     Document createDocument(Long categoryId,Document documentId);
     Document updateDocument(Long categoryId,Long documentId, Document documentDetails);
     ResponseEntity<?> deleteDocument(Long categoryId, Long documentId);
-
     List<Document> getAllDocuments();
 }

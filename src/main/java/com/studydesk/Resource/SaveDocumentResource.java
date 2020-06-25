@@ -23,4 +23,5 @@ public class SaveDocumentResource {
     @NotNull
     @NotBlank
     private String type;
+
 }

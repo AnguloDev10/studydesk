@@ -32,6 +32,7 @@ public class Document extends AuditModel{
     @NotBlank
     private String type;
 
+    //Relation
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "category_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
