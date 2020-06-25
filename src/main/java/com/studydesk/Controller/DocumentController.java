@@ -48,13 +48,13 @@ public class DocumentController {
                                                  @PathVariable(name = "documentId") Long documentId){
         return convertToResource(documentService.getDocumentByIdAndCategoryId(categoryId, documentId));
     }
-
-
+    
     @PostMapping("/categories/{categoryId}/documents")
     public DocumentResource createDocument(@PathVariable(name = "categoryId") Long categoryId,
                                      @Valid @RequestBody SaveDocumentResource resource){
         return convertToResource(documentService.createDocument(categoryId, convertToEntity(resource)));
     }
+
 
     @PutMapping("/categories/{categoryId}/documents/{documentId}")
     public DocumentResource updateDocument(@PathVariable(name = "categoryId") Long categoryId,
@@ -63,11 +63,13 @@ public class DocumentController {
         return convertToResource(documentService.updateDocument(categoryId, documentId, convertToEntity(resource)));
     }
 
+
     @DeleteMapping("/categories/{categoryId}/documents/{documentId}")
     public ResponseEntity<?> deleteDocument(@PathVariable(name = "categoryId") Long categoryId,
                                             @PathVariable(name="documentId") Long documentId){
         return  documentService.deleteDocument(categoryId, documentId);
     }
+
 
     private Document convertToEntity(SaveDocumentResource resource) {
         return mapper.map(resource, Document.class);
