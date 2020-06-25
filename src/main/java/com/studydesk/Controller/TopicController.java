@@ -31,7 +31,7 @@ public class TopicController {
     }
 
     @GetMapping("/courses/{courseId}/topics")
-    public Page<TopicResource> getAllDocumentsByUserId(
+    public Page<TopicResource> getAllDocumentsByCourseId(
             @PathVariable(name = "courseId") Long courseId,
             Pageable pageable)
     {
