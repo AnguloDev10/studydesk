@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
-@Table(name="course")
+@Table(name="courses")
 @Getter
 @Setter
 public class Course extends  AuditModel {
@@ -27,13 +27,15 @@ public class Course extends  AuditModel {
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-            mappedBy = "course")///ve a posts tags y ahi esta la info, solo configuracion en la parte de muchos
+            mappedBy = "courses")///ve a posts tags y ahi esta la info, solo configuracion en la parte de muchos
     @JsonIgnore
     private List<Career> careers;
 
     @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-            mappedBy = "teacher")///ve a posts tags y ahi esta la info, solo configuracion en la parte de muchos
+            cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name = "teachers_courses",
+            joinColumns = {@JoinColumn(name="teacher_id")},
+            inverseJoinColumns = {@JoinColumn(name = "course_id")})
     @JsonIgnore
-    private List<Teacher> teachers;
+    List<Teacher> teachers;
 }

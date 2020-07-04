@@ -29,8 +29,7 @@ public class User extends AuditModel{
     @Size(max = 100)
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "user")
     private Profile profile;
 
 

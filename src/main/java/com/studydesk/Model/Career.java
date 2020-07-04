@@ -27,7 +27,7 @@ public class Career extends AuditModel {
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinTable(name = "career_course",
+    @JoinTable(name = "careers_courses",
             joinColumns = {@JoinColumn(name="career_id")},
             inverseJoinColumns = {@JoinColumn(name = "course_id")})
     @JsonIgnore

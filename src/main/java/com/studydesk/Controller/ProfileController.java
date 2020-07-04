@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 public class ProfileController {
     @Autowired
     private ModelMapper mapper;
-
     @Autowired
     private ProfileService profileService;
 

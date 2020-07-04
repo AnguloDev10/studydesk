@@ -38,10 +38,8 @@ public class Profile extends AuditModel {
     @Size(max=30)
     private String LastName;
 
-
-    @OneToOne(mappedBy = "user")
+    //User One To One
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-
-
-
 }
