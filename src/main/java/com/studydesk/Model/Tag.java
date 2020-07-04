@@ -29,7 +29,7 @@ public class Tag extends AuditModel {
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             mappedBy = "tags")
     @JsonIgnore
-    private List<Foro> posts;
+    private List<Foro> foros;
 
 
 }

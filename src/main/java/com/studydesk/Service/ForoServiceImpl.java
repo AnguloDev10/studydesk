@@ -32,7 +32,7 @@ public class ForoServiceImpl implements ForoService {
                 return foroRepository.save(post);
             }
             return post;
-        }).orElseThrow(() -> new ResourceNotFoundException("Post", "Id", foroId));
+        }).orElseThrow(() -> new ResourceNotFoundException("Foro", "Id", foroId));
 
     }
 
@@ -43,12 +43,12 @@ public class ForoServiceImpl implements ForoService {
         return foroRepository.findById(foroId).map(post -> {
             post.getTags().remove(tag);
             return foroRepository.save(post);
-        }).orElseThrow(() -> new ResourceNotFoundException("Post", "Id", foroId));
+        }).orElseThrow(() -> new ResourceNotFoundException("Foro", "Id", foroId));
     }
 
     public Page<Foro> getAllForosByTagId(Long tagId, Pageable pageable) {
         return tagRepository.findById(tagId).map(tag -> {
-            List<Foro> foros = tag.getPosts();
+            List<Foro> foros = tag.getForos();
             int forosCount = foros.size();
             return new PageImpl<>(foros, pageable, forosCount);
         })
@@ -58,7 +58,7 @@ public class ForoServiceImpl implements ForoService {
     @Override
     public ResponseEntity<?> deleteForo(Long foroId) {
         Foro post = foroRepository.findById(foroId)
-                .orElseThrow(() -> new ResourceNotFoundException("Post", "Id", foroId));
+                .orElseThrow(() -> new ResourceNotFoundException("Foro", "Id", foroId));
         foroRepository.delete(post);
         return ResponseEntity.ok().build();
     }
@@ -66,7 +66,7 @@ public class ForoServiceImpl implements ForoService {
     @Override
     public Foro updateForo(Long foroId, Foro foroRequest) {
         Foro foro = foroRepository.findById(foroId)
-                .orElseThrow(() -> new ResourceNotFoundException("Post", "Id", foroId));
+                .orElseThrow(() -> new ResourceNotFoundException("Foro", "Id", foroId));
         foro.setTitle(foroRequest.getTitle());
         foro.setDescription(foroRequest.getDescription());
         foro.setContent(foroRequest.getContent());
@@ -81,7 +81,7 @@ public class ForoServiceImpl implements ForoService {
     @Override
     public Foro getForoById(Long foroId) {
         return foroRepository.findById(foroId)
-                .orElseThrow(() -> new ResourceNotFoundException("Post", "Id", foroId));
+                .orElseThrow(() -> new ResourceNotFoundException("Foro", "Id", foroId));
     }
 
     @Override

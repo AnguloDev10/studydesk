@@ -33,9 +33,9 @@ public class TagController {
         return new PageImpl<>(tags, pageable, tagsCount);
     }
 
-    @GetMapping("/posts/{postId}/tags")
-    public Page<TagResource> getAllTagsByPostId(@PathVariable(name = "postId") Long postId, Pageable pageable) {
-        List<TagResource> tags = tagService.getAllTagsByForoId(postId, pageable).getContent().stream().map(this::convertToResource).collect(Collectors.toList());
+    @GetMapping("/foros/{foroId}/tags")
+    public Page<TagResource> getAllTagsByPostId(@PathVariable(name = "foroId") Long foroId, Pageable pageable) {
+        List<TagResource> tags = tagService.getAllTagsByForoId(foroId, pageable).getContent().stream().map(this::convertToResource).collect(Collectors.toList());
         int tagCount = tags.size();
         return new PageImpl<>(tags, pageable, tagCount);
     }
