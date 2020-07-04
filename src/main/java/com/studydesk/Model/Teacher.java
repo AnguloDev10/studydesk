@@ -30,10 +30,8 @@ public class Teacher extends AuditModel{
     private String field;
 
     @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinTable(name = "teacher_course",
-            joinColumns = {@JoinColumn(name="teacher_id")},
-            inverseJoinColumns = {@JoinColumn(name = "course_id")})
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            mappedBy = "teachers")///ve a posts tags y ahi esta la info, solo configuracion en la parte de muchos
     @JsonIgnore
-    List<Course> courses;
+    private List<Course> courses;
 }

@@ -50,7 +50,7 @@ public class Foro  extends  AuditModel{
             joinColumns = {@JoinColumn(name="foro_id")},
             inverseJoinColumns = {@JoinColumn(name = "tag_id")})
     @JsonIgnore
-    List<User> User;
+    List<User> users;
 
 
 }
