@@ -4,6 +4,7 @@ import com.studydesk.Model.Profile;
 import com.studydesk.Resource.ProfileResource;
 import com.studydesk.Resource.SaveProfileResource;
 import com.studydesk.Service.ProfileService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Tag(name = "profiles", description = "Foros API")
 @RestController
 @RequestMapping("/api")
 public class ProfileController {

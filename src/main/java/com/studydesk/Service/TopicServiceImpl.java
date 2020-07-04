@@ -69,4 +69,6 @@ public class TopicServiceImpl implements TopicService{
     public List<Topíc> getAllTopics() {
         return topicRepository.findAll();
     }
+
+
 }

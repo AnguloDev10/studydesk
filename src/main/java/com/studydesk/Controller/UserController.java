@@ -4,6 +4,7 @@ import com.studydesk.Model.User;
 import com.studydesk.Resource.SaveUserResource;
 import com.studydesk.Resource.UserResource;
 import com.studydesk.Service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Tag(name = "users", description = "Teachers API")
 @RestController
 @RequestMapping(value ="/api")
 public class UserController {

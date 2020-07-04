@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@io.swagger.v3.oas.annotations.tags.Tag(name = "tags", description = "Foros API")
 @RestController
 @RequestMapping("/api")
 public class TagController {
